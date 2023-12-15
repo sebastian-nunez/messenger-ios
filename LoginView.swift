@@ -20,7 +20,7 @@ struct LoginView: View {
                 Image("MessengerLogo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 150, height: 150)
+                    .frame(width: 120, height: 120)
                     .padding(.bottom, 32)
                     
                 // text fields
@@ -102,7 +102,8 @@ struct LoginView: View {
                 
                 // sign up link
                 NavigationLink {
-                    Text("Sign up")
+                    SignUpView()
+                        .navigationBarBackButtonHidden()
                 } label: {
                     HStack(spacing: 3) {
                         Text("Don't have an account?")

@@ -12,6 +12,7 @@
 		9EFA6F3C2B2C00520068B3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EFA6F3B2B2C00520068B3FE /* Assets.xcassets */; };
 		9EFA6F3F2B2C00520068B3FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EFA6F3E2B2C00520068B3FE /* Preview Assets.xcassets */; };
 		9EFA6F4E2B2C01540068B3FE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F4D2B2C01540068B3FE /* LoginView.swift */; };
+		9EFA6F502B2C0C7C0068B3FE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F4F2B2C0C7C0068B3FE /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		9EFA6F3B2B2C00520068B3FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EFA6F3E2B2C00520068B3FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9EFA6F4D2B2C01540068B3FE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = SOURCE_ROOT; };
+		9EFA6F4F2B2C0C7C0068B3FE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				9EFA6F4D2B2C01540068B3FE /* LoginView.swift */,
+				9EFA6F4F2B2C0C7C0068B3FE /* SignUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EFA6F502B2C0C7C0068B3FE /* SignUpView.swift in Sources */,
 				9EFA6F4E2B2C01540068B3FE /* LoginView.swift in Sources */,
 				9EFA6F3A2B2C004C0068B3FE /* ContentView.swift in Sources */,
 				9EFA6F382B2C004C0068B3FE /* MessengerApp.swift in Sources */,
@@ -340,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Messenger/Preview Content\"";
+				DEVELOPMENT_TEAM = NT3V622V8B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -368,6 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Messenger/Preview Content\"";
+				DEVELOPMENT_TEAM = NT3V622V8B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
