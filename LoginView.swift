@@ -50,6 +50,8 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.horizontal)
                 
+                .padding(.top, -8)
+                
                 // login button
                 Button {
                     print("Login")
