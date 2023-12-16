@@ -20,7 +20,7 @@ struct ActiveNowView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 64, height: 64)
-                                .foregroundStyle(Color(.systemGray5))
+                                .foregroundStyle(Color(.systemGray4))
 
                             // green circle
                             ZStack {

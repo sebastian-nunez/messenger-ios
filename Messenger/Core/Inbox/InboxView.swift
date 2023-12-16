@@ -12,6 +12,14 @@ struct InboxView: View {
         NavigationStack {
             ScrollView(.vertical) {
                 ActiveNowView()
+
+                List {
+                    ForEach(1 ... 30, id: \.self) { _ in
+                        InboxRowView()
+                    }
+                }
+                .listStyle(PlainListStyle())
+                .frame(height: UIScreen.main.bounds.height - 120)
             }
             .toolbar {
                 // LEFT
@@ -22,6 +30,7 @@ struct InboxView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 32, height: 32)
+                            .foregroundStyle(Color(.systemGray4))
 
                         // heading
                         Text("Chats")

@@ -47,10 +47,7 @@ struct InboxRowView: View {
             .font(.footnote)
             .foregroundStyle(.gray)
         }
-        .padding(.horizontal)
         .frame(height: 72)
-
-        Divider()
     }
 }
 
