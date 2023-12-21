@@ -11,11 +11,7 @@ struct InboxRowView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             // image
-            Image(systemName: "person.circle.fill")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 64, height: 64)
-                .foregroundStyle(Color(.systemGray4))
+            CircularProfileImageView(user: User.MOCK_USER, size: .large)
 
             // user info
             VStack(alignment: .leading, spacing: 8) {
