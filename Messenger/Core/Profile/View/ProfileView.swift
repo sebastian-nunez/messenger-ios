@@ -28,11 +28,11 @@ struct ProfileView: View {
                 Section {
                     ForEach(SettingsOptionsViewModel.allCases) { option in
                         HStack {
-                            Image(systemName: option.image)
+                            Image(systemName: option.imageName)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 24, height: 24)
-                                .foregroundStyle(option.color)
+                                .foregroundStyle(option.imageBackgroundColor)
 
                             Text(option.title)
                                 .font(.subheadline)

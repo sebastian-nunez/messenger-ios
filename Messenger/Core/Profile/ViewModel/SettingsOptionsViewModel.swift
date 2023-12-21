@@ -29,7 +29,7 @@ enum SettingsOptionsViewModel: Int, Identifiable, CaseIterable {
         }
     }
 
-    var color: Color {
+    var imageBackgroundColor: Color {
         switch self {
         case .darkMode: .black
         case .activeStatus: Color(.systemGreen)
@@ -39,7 +39,7 @@ enum SettingsOptionsViewModel: Int, Identifiable, CaseIterable {
         }
     }
 
-    var image: String {
+    var imageName: String {
         switch self {
         case .darkMode: "moon.circle.fill"
         case .activeStatus: "message.badge.circle.fill"
