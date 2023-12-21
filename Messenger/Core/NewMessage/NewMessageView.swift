@@ -20,10 +20,39 @@ struct NewMessageView: View {
                     .padding(.leading)
                     .background(Color(.systemGroupedBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 6))
+                    .padding(.horizontal)
 
                 // contact list
+                Text("CONTACTS")
+                    .foregroundStyle(.gray)
+                    .font(.footnote)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+
+                LazyVStack(spacing: 16) {
+                    ForEach(1 ... 10, id: \.self) { _ in
+                        VStack {
+                            HStack {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 32, height: 32)
+                                    .foregroundStyle(Color(.systemGray4))
+
+                                Text("Chadwick Bozeman")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+
+                                Spacer()
+                            }
+                            .padding(.leading)
+
+                            Divider()
+                                .padding(.leading, 56)
+                        }
+                    }
+                }
             }
-            .padding(.horizontal)
             .navigationTitle("New Message")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
