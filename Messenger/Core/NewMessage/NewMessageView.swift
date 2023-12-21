@@ -34,7 +34,7 @@ struct NewMessageView: View {
                     ForEach(1 ... 10, id: \.self) { _ in
                         VStack {
                             HStack {
-                                CircularProfileImageView(user: User.MOCK_USER)
+                                CircularProfileImageView(user: User.MOCK_USER, size: .small)
 
                                 Text("Chadwick Bozeman")
                                     .font(.subheadline)
