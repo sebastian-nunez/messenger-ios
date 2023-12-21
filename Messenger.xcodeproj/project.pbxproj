@@ -24,6 +24,7 @@
 		9EFA6F6C2B3473580068B3FE /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F6B2B3473570068B3FE /* CircularProfileImageView.swift */; };
 		9EFA6F6F2B3481350068B3FE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F6E2B3481350068B3FE /* ChatView.swift */; };
 		9EFA6F712B3488E20068B3FE /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F702B3488E20068B3FE /* ChatMessageCell.swift */; };
+		9EFA6F732B348FFF0068B3FE /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F722B348FFF0068B3FE /* ChatBubble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		9EFA6F6B2B3473570068B3FE /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		9EFA6F6E2B3481350068B3FE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		9EFA6F702B3488E20068B3FE /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		9EFA6F722B348FFF0068B3FE /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				9EFA6F6E2B3481350068B3FE /* ChatView.swift */,
 				9EFA6F702B3488E20068B3FE /* ChatMessageCell.swift */,
+				9EFA6F722B348FFF0068B3FE /* ChatBubble.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				9EFA6F6F2B3481350068B3FE /* ChatView.swift in Sources */,
 				9EFA6F4E2B2C01540068B3FE /* LoginView.swift in Sources */,
 				9EFA6F712B3488E20068B3FE /* ChatMessageCell.swift in Sources */,
+				9EFA6F732B348FFF0068B3FE /* ChatBubble.swift in Sources */,
 				9EFA6F6C2B3473580068B3FE /* CircularProfileImageView.swift in Sources */,
 				9EFA6F532B2E00E40068B3FE /* InboxView.swift in Sources */,
 				9EFA6F582B2E05B80068B3FE /* ActiveNowView.swift in Sources */,

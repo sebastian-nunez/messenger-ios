@@ -25,7 +25,7 @@ struct ChatMessageCell: View {
                     .padding(.horizontal, 16)
                     .background(Color(.systemBlue))
                     .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .clipShape(ChatBubble(isFromCurrentUser: isFromCurrentUser))
                     .frame(maxWidth: SENT_MESSAGE_WIDTH, alignment: .trailing)
 
             } else { // place to the left and grey with image
@@ -38,14 +38,14 @@ struct ChatMessageCell: View {
                         .padding(.horizontal, 16)
                         .background(Color(.systemGray5))
                         .foregroundStyle(.black)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .clipShape(ChatBubble(isFromCurrentUser: isFromCurrentUser))
                         .frame(maxWidth: RECEIVED_MESSAGE_WIDTH, alignment: .leading)
                 }
 
                 Spacer()
             }
         }
-        .padding(.horizontal, 8)
+        .padding(.horizontal)
     }
 }
 
