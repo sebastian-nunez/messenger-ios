@@ -26,15 +26,15 @@ struct ProfileView: View {
             // list of settings
             List {
                 Section {
-                    ForEach(1 ... 5, id: \.self) { _ in
+                    ForEach(SettingsOptionsViewModel.allCases) { option in
                         HStack {
-                            Image(systemName: "bell.circle.fill")
+                            Image(systemName: option.image)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 24, height: 24)
-                                .foregroundStyle(Color(.systemPurple))
+                                .foregroundStyle(option.color)
 
-                            Text("Notifications")
+                            Text(option.title)
                                 .font(.subheadline)
                         }
                     }
