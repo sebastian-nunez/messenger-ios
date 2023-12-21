@@ -10,6 +10,9 @@ import SwiftUI
 struct ChatMessageCell: View {
     let isFromCurrentUser: Bool
 
+    private let SENT_MESSAGE_WIDTH = UIScreen.main.bounds.width * (2.0 / 3.0)
+    private let RECEIVED_MESSAGE_WIDTH = UIScreen.main.bounds.width * (3.0 / 5.0)
+
     var body: some View {
         HStack {
             // place to the right and blue
@@ -18,10 +21,12 @@ struct ChatMessageCell: View {
 
                 Text("This is a very long test message for now. It expands multiple lines.")
                     .font(.subheadline)
-                    .padding(12)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 16)
                     .background(Color(.systemBlue))
                     .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .frame(maxWidth: SENT_MESSAGE_WIDTH, alignment: .trailing)
 
             } else { // place to the left and grey with image
                 HStack(alignment: .bottom, spacing: 8) {
@@ -29,10 +34,12 @@ struct ChatMessageCell: View {
 
                     Text("This is a very long test message for now. It expands multiple lines.")
                         .font(.subheadline)
-                        .padding(12)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 16)
                         .background(Color(.systemGray5))
                         .foregroundStyle(.black)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .frame(maxWidth: RECIEVED_MESSAGE_WIDTH, alignment: .leading)
                 }
 
                 Spacer()
