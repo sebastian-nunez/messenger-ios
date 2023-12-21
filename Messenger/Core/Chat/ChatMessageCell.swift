@@ -39,7 +39,7 @@ struct ChatMessageCell: View {
                         .background(Color(.systemGray5))
                         .foregroundStyle(.black)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .frame(maxWidth: RECIEVED_MESSAGE_WIDTH, alignment: .leading)
+                        .frame(maxWidth: RECEIVED_MESSAGE_WIDTH, alignment: .leading)
                 }
 
                 Spacer()
