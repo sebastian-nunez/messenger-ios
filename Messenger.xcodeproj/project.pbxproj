@@ -17,6 +17,7 @@
 		9EFA6F582B2E05B80068B3FE /* ActiveNowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F572B2E05B80068B3FE /* ActiveNowView.swift */; };
 		9EFA6F5A2B2E090A0068B3FE /* InboxRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F592B2E090A0068B3FE /* InboxRowView.swift */; };
 		9EFA6F5D2B3452B90068B3FE /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F5C2B3452B90068B3FE /* NewMessageView.swift */; };
+		9EFA6F622B345A660068B3FE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F612B345A660068B3FE /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		9EFA6F572B2E05B80068B3FE /* ActiveNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNowView.swift; sourceTree = "<group>"; };
 		9EFA6F592B2E090A0068B3FE /* InboxRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxRowView.swift; sourceTree = "<group>"; };
 		9EFA6F5C2B3452B90068B3FE /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
+		9EFA6F612B345A660068B3FE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				9EFA6F4A2B2C01330068B3FE /* Auth */,
 				9EFA6F512B2E00D30068B3FE /* Inbox */,
 				9EFA6F5B2B3452A20068B3FE /* NewMessage */,
+				9EFA6F5E2B345A1E0068B3FE /* Profile */,
 				9EFA6F4B2B2C01390068B3FE /* Root */,
 			);
 			path = Core;
@@ -171,6 +174,30 @@
 				9EFA6F5C2B3452B90068B3FE /* NewMessageView.swift */,
 			);
 			path = NewMessage;
+			sourceTree = "<group>";
+		};
+		9EFA6F5E2B345A1E0068B3FE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA6F602B345A3F0068B3FE /* View */,
+				9EFA6F5F2B345A330068B3FE /* ViewModel */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9EFA6F5F2B345A330068B3FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9EFA6F602B345A3F0068B3FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA6F612B345A660068B3FE /* ProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EFA6F5A2B2E090A0068B3FE /* InboxRowView.swift in Sources */,
+				9EFA6F622B345A660068B3FE /* ProfileView.swift in Sources */,
 				9EFA6F5D2B3452B90068B3FE /* NewMessageView.swift in Sources */,
 				9EFA6F502B2C0C7C0068B3FE /* SignUpView.swift in Sources */,
 				9EFA6F4E2B2C01540068B3FE /* LoginView.swift in Sources */,
