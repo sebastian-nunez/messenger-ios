@@ -40,7 +40,7 @@ struct ChatView: View {
                 .padding(16)
                 .padding(.trailing, 48)
                 .background(Color(.systemGroupedBackground))
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: 32))
 
             Button("Send") {
                 print("DEBUG: sending message")
