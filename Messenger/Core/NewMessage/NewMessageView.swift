@@ -21,6 +21,7 @@ struct NewMessageView: View {
                     .background(Color(.systemGroupedBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 6))
                     .padding(.horizontal)
+                    .padding(.top, 8)
 
                 // contact list
                 Text("CONTACTS")
