@@ -26,8 +26,14 @@ struct ChatView: View {
                             .foregroundStyle(.gray)
                     }
                 }
+                .padding(.bottom)
 
                 // messages
+                LazyVStack(spacing: 12) {
+                    ForEach(1 ... 15, id: \.self) { _ in
+                        ChatMessageCell(isFromCurrentUser: Bool.random())
+                    }
+                }
             }
         }
 
