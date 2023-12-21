@@ -24,6 +24,9 @@ struct InboxView: View {
                 .listStyle(PlainListStyle())
                 .frame(height: UIScreen.main.bounds.height - 120)
             }
+            .navigationDestination(for: User.self) { user in
+                ProfileView(user: user)
+            }
             .fullScreenCover(isPresented: $showNewMessageView) {
                 NewMessageView()
             }
@@ -31,19 +34,21 @@ struct InboxView: View {
                 // LEFT
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack(spacing: 16) {
-                        // image
-                        if let imageUrl = user.profileImageUrl {
-                            Image(imageUrl)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 32, height: 32)
-                                .clipShape(Circle())
-                        } else {
-                            Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 32, height: 32)
-                                .foregroundStyle(Color(.systemGray4))
+                        NavigationLink(value: user) {
+                            // image
+                            if let imageUrl = user.profileImageUrl {
+                                Image(imageUrl)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 32, height: 32)
+                                    .clipShape(Circle())
+                            } else {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 32, height: 32)
+                                    .foregroundStyle(Color(.systemGray4))
+                            }
                         }
 
                         // heading
@@ -67,6 +72,7 @@ struct InboxView: View {
                 }
             }
         }
+        .tint(.black)
     }
 }
 
