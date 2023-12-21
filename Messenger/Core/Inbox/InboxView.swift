@@ -33,22 +33,10 @@ struct InboxView: View {
             .toolbar {
                 // LEFT
                 ToolbarItem(placement: .navigationBarLeading) {
-                    HStack(spacing: 16) {
+                    HStack(spacing: 8) {
                         NavigationLink(value: user) {
                             // image
-                            if let imageUrl = user.profileImageUrl {
-                                Image(imageUrl)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 32, height: 32)
-                                    .clipShape(Circle())
-                            } else {
-                                Image(systemName: "person.circle.fill")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 32, height: 32)
-                                    .foregroundStyle(Color(.systemGray4))
-                            }
+                            CircularProfileImageView(user: user)
                         }
 
                         // heading

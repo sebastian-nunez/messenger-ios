@@ -21,6 +21,7 @@
 		9EFA6F642B345C6B0068B3FE /* SettingsOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F632B345C6B0068B3FE /* SettingsOptionsViewModel.swift */; };
 		9EFA6F662B3465DA0068B3FE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F652B3465DA0068B3FE /* ProfileViewModel.swift */; };
 		9EFA6F682B346BDD0068B3FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F672B346BDD0068B3FE /* User.swift */; };
+		9EFA6F6C2B3473580068B3FE /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F6B2B3473570068B3FE /* CircularProfileImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		9EFA6F632B345C6B0068B3FE /* SettingsOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionsViewModel.swift; sourceTree = "<group>"; };
 		9EFA6F652B3465DA0068B3FE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		9EFA6F672B346BDD0068B3FE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9EFA6F6B2B3473570068B3FE /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				9EFA6F492B2C00F90068B3FE /* App */,
+				9EFA6F6A2B34732F0068B3FE /* Components */,
 				9EFA6F482B2C00F80068B3FE /* Core */,
 				9EFA6F452B2C00EF0068B3FE /* Extensions */,
 				9EFA6F472B2C00F70068B3FE /* Model */,
@@ -209,6 +212,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9EFA6F6A2B34732F0068B3FE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA6F6B2B3473570068B3FE /* CircularProfileImageView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -284,6 +295,7 @@
 				9EFA6F5D2B3452B90068B3FE /* NewMessageView.swift in Sources */,
 				9EFA6F502B2C0C7C0068B3FE /* SignUpView.swift in Sources */,
 				9EFA6F4E2B2C01540068B3FE /* LoginView.swift in Sources */,
+				9EFA6F6C2B3473580068B3FE /* CircularProfileImageView.swift in Sources */,
 				9EFA6F532B2E00E40068B3FE /* InboxView.swift in Sources */,
 				9EFA6F582B2E05B80068B3FE /* ActiveNowView.swift in Sources */,
 				9EFA6F662B3465DA0068B3FE /* ProfileViewModel.swift in Sources */,

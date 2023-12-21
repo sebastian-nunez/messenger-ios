@@ -21,16 +21,10 @@ struct ProfileView: View {
                         profileImage
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 120, height: 120)
+                            .frame(width: ProfileImageSize.xxLarge.dimension, height: ProfileImageSize.xxLarge.dimension)
                             .clipShape(Circle())
                     } else {
-                        // default image
-                        Image(user.profileImageUrl ?? "person.circle.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 120, height: 120)
-                            .foregroundStyle(Color(.systemGray4))
-                            .clipShape(Circle())
+                        CircularProfileImageView(user: user, size: .xxLarge)
                     }
                 }
 
