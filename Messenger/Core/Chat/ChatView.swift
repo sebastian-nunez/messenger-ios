@@ -1,0 +1,57 @@
+//
+//  ChatView.swift
+//  Messenger
+//
+//  Created by Sebastian on 12/21/23.
+//
+
+import SwiftUI
+
+struct ChatView: View {
+    @State private var messageText = ""
+    var body: some View {
+        VStack {
+            ScrollView(.vertical) {
+                // header
+                VStack(spacing: 12) {
+                    CircularProfileImageView(user: User.MOCK_USER, size: .xLarge)
+
+                    VStack(spacing: 4) {
+                        Text(User.MOCK_USER.fullName)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+
+                        Text("Messenger")
+                            .font(.subheadline)
+                            .foregroundStyle(.gray)
+                    }
+                }
+
+                // messages
+            }
+        }
+
+        Spacer()
+
+        // message input view
+        ZStack(alignment: .trailing) {
+            TextField("Message...", text: $messageText, axis: .vertical)
+                .font(.subheadline)
+                .padding(16)
+                .padding(.trailing, 48)
+                .background(Color(.systemGroupedBackground))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+
+            Button("Send") {
+                print("DEBUG: sending message")
+            }
+            .fontWeight(.semibold)
+            .padding(.trailing)
+        }
+        .padding(.horizontal)
+    }
+}
+
+#Preview {
+    ChatView()
+}
