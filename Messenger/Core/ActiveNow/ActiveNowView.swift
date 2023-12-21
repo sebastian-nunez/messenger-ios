@@ -16,7 +16,7 @@ struct ActiveNowView: View {
                     VStack {
                         // image
                         ZStack(alignment: .bottomTrailing) {
-                            CircularProfileImageView(user: User.MOCK_USER, size: .large)
+                            CircularProfileImageView(user: User.MOCK_USER, size: .medium)
 
                             // green circle
                             ZStack {
@@ -37,9 +37,9 @@ struct ActiveNowView: View {
                     }
                 }
             }
-            .padding()
+            .padding(.horizontal)
         }
-        .scrollTargetBehavior(.paging)
+        // .scrollTargetBehavior(.paging)
         .frame(height: 106)
     }
 }
