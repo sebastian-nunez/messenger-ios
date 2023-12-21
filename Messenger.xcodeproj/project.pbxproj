@@ -20,6 +20,7 @@
 		9EFA6F622B345A660068B3FE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F612B345A660068B3FE /* ProfileView.swift */; };
 		9EFA6F642B345C6B0068B3FE /* SettingsOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F632B345C6B0068B3FE /* SettingsOptionsViewModel.swift */; };
 		9EFA6F662B3465DA0068B3FE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F652B3465DA0068B3FE /* ProfileViewModel.swift */; };
+		9EFA6F682B346BDD0068B3FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F672B346BDD0068B3FE /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		9EFA6F612B345A660068B3FE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		9EFA6F632B345C6B0068B3FE /* SettingsOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionsViewModel.swift; sourceTree = "<group>"; };
 		9EFA6F652B3465DA0068B3FE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		9EFA6F672B346BDD0068B3FE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		9EFA6F472B2C00F70068B3FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9EFA6F672B346BDD0068B3FE /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				9EFA6F532B2E00E40068B3FE /* InboxView.swift in Sources */,
 				9EFA6F582B2E05B80068B3FE /* ActiveNowView.swift in Sources */,
 				9EFA6F662B3465DA0068B3FE /* ProfileViewModel.swift in Sources */,
+				9EFA6F682B346BDD0068B3FE /* User.swift in Sources */,
 				9EFA6F3A2B2C004C0068B3FE /* ContentView.swift in Sources */,
 				9EFA6F642B345C6B0068B3FE /* SettingsOptionsViewModel.swift in Sources */,
 				9EFA6F382B2C004C0068B3FE /* MessengerApp.swift in Sources */,
