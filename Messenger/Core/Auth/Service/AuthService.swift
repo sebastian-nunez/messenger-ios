@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol AuthService {
+    func login(withEmail email: String, password: String) async throws
+
+    func createUser(withEmail email: String, password: String, fullname: String) async throws
+}
