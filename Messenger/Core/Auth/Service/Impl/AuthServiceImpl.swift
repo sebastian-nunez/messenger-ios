@@ -18,10 +18,7 @@ class AuthServiceImpl: AuthService {
         self.userSession = Auth.auth().currentUser
         print("DEBUG: user session id \(userSession?.uid ?? "NO SESSION")")
 
-        // fetch the metadata for the logged in user
-        Task {
-            try await UserServiceImpl.shared.fetchCurrentUser()
-        }
+        fetchCurrentUserMetadata()
     }
 
     @MainActor
@@ -39,10 +36,7 @@ class AuthServiceImpl: AuthService {
             print("DEBUG: unable to create user with email \(email) and error: \(error.localizedDescription)")
         }
 
-        // fetch the metadata for the created user
-        Task {
-            try await UserServiceImpl.shared.fetchCurrentUser()
-        }
+        fetchCurrentUserMetadata()
     }
 
     @MainActor
@@ -60,10 +54,7 @@ class AuthServiceImpl: AuthService {
             print("DEBUG: unable to login user with email \(email) and error: \(error.localizedDescription)")
         }
 
-        // fetch the metadata for the logged in user
-        Task {
-            try await UserServiceImpl.shared.fetchCurrentUser()
-        }
+        fetchCurrentUserMetadata()
     }
 
     func logout() {
@@ -76,6 +67,7 @@ class AuthServiceImpl: AuthService {
         do {
             try Auth.auth().signOut()
             userSession = nil
+            UserServiceImpl.shared.currentUser = nil
             print("DEBUG: logged out user")
         } catch {
             print("DEBUG: unable to log out user with email \(userSession?.email ?? "NO EMAIL") with error \(error.localizedDescription)")
@@ -96,5 +88,12 @@ class AuthServiceImpl: AuthService {
         // save the user to Firestore
         try await Firestore.firestore().collection("users").document(uid).setData(encodedUser)
         print("DEBUG: saved user metadata with email \(email)")
+    }
+
+    /// Fetch the metadata for the logged in user via a "Task".
+    private func fetchCurrentUserMetadata() {
+        Task {
+            try await UserServiceImpl.shared.fetchCurrentUser()
+        }
     }
 }

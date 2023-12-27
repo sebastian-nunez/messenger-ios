@@ -8,7 +8,7 @@
 import Foundation
 
 protocol UserService {
-    var currentUser: User? { get }
+    var currentUser: User? { get set }
 
     func fetchCurrentUser() async throws
 }
