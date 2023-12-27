@@ -57,6 +57,7 @@
 		9EFA6FB42B35C0470068B3FE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6FB32B35C0470068B3FE /* AuthService.swift */; };
 		9EFA6FB72B35C0B10068B3FE /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6FB62B35C0B10068B3FE /* AuthServiceImpl.swift */; };
 		9EFA6FB92B35C4490068B3FE /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6FB82B35C4490068B3FE /* SignUpViewModel.swift */; };
+		9EFA6FBD2B3C51400068B3FE /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6FBC2B3C51400068B3FE /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		9EFA6FB32B35C0470068B3FE /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9EFA6FB62B35C0B10068B3FE /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
 		9EFA6FB82B35C4490068B3FE /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		9EFA6FBC2B3C51400068B3FE /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +223,8 @@
 		9EFA6F4B2B2C01390068B3FE /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				9EFA6F392B2C004C0068B3FE /* ContentView.swift */,
+				9EFA6FBB2B3C51110068B3FE /* View */,
+				9EFA6FBA2B3C510F0068B3FE /* ViewModel */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -328,6 +331,22 @@
 				9EFA6FB62B35C0B10068B3FE /* AuthServiceImpl.swift */,
 			);
 			path = Impl;
+			sourceTree = "<group>";
+		};
+		9EFA6FBA2B3C510F0068B3FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA6FBC2B3C51400068B3FE /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9EFA6FBB2B3C51110068B3FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA6F392B2C004C0068B3FE /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +469,7 @@
 				9EFA6F662B3465DA0068B3FE /* ProfileViewModel.swift in Sources */,
 				9EFA6F682B346BDD0068B3FE /* User.swift in Sources */,
 				9EFA6F3A2B2C004C0068B3FE /* ContentView.swift in Sources */,
+				9EFA6FBD2B3C51400068B3FE /* ContentViewModel.swift in Sources */,
 				9EFA6FB72B35C0B10068B3FE /* AuthServiceImpl.swift in Sources */,
 				9EFA6F642B345C6B0068B3FE /* SettingsOptionsViewModel.swift in Sources */,
 				9EFA6F382B2C004C0068B3FE /* MessengerApp.swift in Sources */,
