@@ -17,6 +17,11 @@ class AuthServiceImpl: AuthService {
     init() {
         self.userSession = Auth.auth().currentUser
         print("DEBUG: user session id \(userSession?.uid ?? "NO SESSION")")
+
+        // fetch the metadata for the logged in user
+        Task {
+            try await UserServiceImpl.shared.fetchCurrentUser()
+        }
     }
 
     @MainActor
