@@ -33,6 +33,11 @@ class AuthServiceImpl: AuthService {
         } catch {
             print("DEBUG: unable to create user with email \(email) and error: \(error.localizedDescription)")
         }
+
+        // fetch the metadata for the created user
+        Task {
+            try await UserServiceImpl.shared.fetchCurrentUser()
+        }
     }
 
     @MainActor
@@ -48,6 +53,11 @@ class AuthServiceImpl: AuthService {
             print("DEBUG: signed in user \(result.user.uid)")
         } catch {
             print("DEBUG: unable to login user with email \(email) and error: \(error.localizedDescription)")
+        }
+
+        // fetch the metadata for the logged in user
+        Task {
+            try await UserServiceImpl.shared.fetchCurrentUser()
         }
     }
 
