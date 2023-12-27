@@ -9,7 +9,7 @@ import Firebase
 import Foundation
 
 class AuthServiceImpl: AuthService {
-    @Published var userSession: Firebase.User?
+    @Published var userSession: FirebaseAuth.User?
 
     init() {
         self.userSession = Auth.auth().currentUser

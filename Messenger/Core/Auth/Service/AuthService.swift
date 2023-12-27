@@ -9,7 +9,7 @@ import Firebase
 import Foundation
 
 protocol AuthService {
-    var userSession: Firebase.User? { get }
+    var userSession: FirebaseAuth.User? { get }
 
     func login(withEmail email: String, password: String) async throws
 
