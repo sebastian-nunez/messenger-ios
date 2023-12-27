@@ -9,6 +9,13 @@ import Firebase
 import Foundation
 
 class AuthServiceImpl: AuthService {
+    @Published var userSession: Firebase.User?
+
+    init() {
+        self.userSession = Auth.auth().currentUser
+        print("DEBUG: user session id \(userSession?.uid ?? "NO SESSION")")
+    }
+
     func createUser(withEmail email: String, password: String, fullname: String) async throws {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
@@ -19,7 +26,7 @@ class AuthServiceImpl: AuthService {
     }
 
     func login(withEmail email: String, password: String) async throws {
-        if let user = Auth.auth().currentUser {
+        if let user = userSession {
             print("DEBUG: user is already logged in with email \(user.email ?? "NO EMAIL")")
             return
         }
