@@ -35,7 +35,7 @@ class UserServiceImpl: UserService {
     }
 
     @MainActor
-    func fetchAllUsers() async throws -> [User] {
+    static func fetchAllUsers() async throws -> [User] {
         // fetch all users
         let snapshot = try await Firestore.firestore().collection("users").getDocuments()
 

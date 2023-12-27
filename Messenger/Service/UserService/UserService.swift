@@ -11,4 +11,5 @@ protocol UserService {
     var currentUser: User? { get set }
 
     func fetchCurrentUser() async throws
+    static func fetchAllUsers() async throws -> [User]
 }
