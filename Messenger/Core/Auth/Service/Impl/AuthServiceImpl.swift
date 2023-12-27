@@ -9,6 +9,8 @@ import Firebase
 import Foundation
 
 class AuthServiceImpl: AuthService {
+    static let shared = AuthServiceImpl()
+
     @Published var userSession: FirebaseAuth.User?
 
     init() {
@@ -19,6 +21,7 @@ class AuthServiceImpl: AuthService {
     func createUser(withEmail email: String, password: String, fullname: String) async throws {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            userSession = result.user
             print("DEBUG: created user \(result.user.uid)")
         } catch {
             print("DEBUG: unable to create user with email \(email) and error: \(error.localizedDescription)")
@@ -33,9 +36,25 @@ class AuthServiceImpl: AuthService {
 
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            userSession = result.user
             print("DEBUG: signed in user \(result.user.uid)")
         } catch {
             print("DEBUG: unable to login user with email \(email) and error: \(error.localizedDescription)")
+        }
+    }
+
+    func logout() {
+        if userSession == nil {
+            print("DEBUG: unable to logout without a userSession")
+            return
+        }
+
+        do {
+            try Auth.auth().signOut()
+            userSession = nil
+            print("DEBUG: logged out user")
+        } catch {
+            print("DEBUG: unable to log out user with email \(userSession?.email ?? "NO EMAIL") with error \(error.localizedDescription)")
         }
     }
 }

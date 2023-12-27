@@ -12,6 +12,6 @@ protocol AuthService {
     var userSession: FirebaseAuth.User? { get }
 
     func login(withEmail email: String, password: String) async throws
-
     func createUser(withEmail email: String, password: String, fullname: String) async throws
+    func logout()
 }

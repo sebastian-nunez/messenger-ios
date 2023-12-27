@@ -7,6 +7,6 @@ class SignUpViewModel: ObservableObject {
 
     func createUser() async throws {
         print("DEBUG: attemping to create user with email \(email)")
-        try await AuthServiceImpl().createUser(withEmail: email, password: password, fullname: fullname)
+        try await AuthServiceImpl.shared.createUser(withEmail: email, password: password, fullname: fullname)
     }
 }

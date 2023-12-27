@@ -53,6 +53,8 @@ struct ProfileView: View {
                 Section {
                     Button("Log Out") {
                         print("DEBUG: logging out")
+
+                        AuthServiceImpl.shared.logout()
                     }
                     .tint(.red)
 

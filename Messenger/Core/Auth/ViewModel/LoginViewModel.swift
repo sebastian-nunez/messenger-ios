@@ -14,6 +14,6 @@ class LoginViewModel: ObservableObject {
 
     func login() async throws {
         print("DEBUG: attemping to login user with email \(email)")
-        try await AuthServiceImpl().login(withEmail: email, password: password)
+        try await AuthServiceImpl.shared.login(withEmail: email, password: password)
     }
 }
