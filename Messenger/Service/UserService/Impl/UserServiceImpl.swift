@@ -33,4 +33,17 @@ class UserServiceImpl: UserService {
         // set the currentUser
         currentUser = user
     }
+
+    @MainActor
+    func fetchAllUsers() async throws -> [User] {
+        // fetch all users
+        let snapshot = try await Firestore.firestore().collection("users").getDocuments()
+
+        // decode the users
+        let users = snapshot.documents.compactMap { user in
+            try? user.data(as: User.self)
+        }
+
+        return users
+    }
 }
