@@ -30,3 +30,11 @@ struct Message: Identifiable, Codable, Hashable {
         fromId == Auth.auth().currentUser?.uid
     }
 }
+
+extension Message {
+    static let MOCK_MESSAGE = Message(fromId: "1",
+                                      toId: "2",
+                                      messageText: "This is a very long test message for now. It expands multiple lines.",
+                                      timestamp: Timestamp(),
+                                      user: User.MOCK_USER)
+}
