@@ -10,6 +10,7 @@ import SwiftUI
 struct InboxView: View {
     @State private var showNewMessageView = false
     @StateObject private var viewModel = InboxViewModel()
+    @State private var selectedUser: User?
 
     private var user: User? {
         return viewModel.currentUser
@@ -32,7 +33,7 @@ struct InboxView: View {
                 ProfileView(user: user)
             }
             .fullScreenCover(isPresented: $showNewMessageView) {
-                NewMessageView()
+                NewMessageView(selectedUser: $selectedUser)
             }
             .toolbar {
                 // LEFT
