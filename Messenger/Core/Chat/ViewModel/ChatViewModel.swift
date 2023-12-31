@@ -18,6 +18,6 @@ class ChatViewModel: ObservableObject {
     func sendMessage() {
         print("DEBUG: attempting to send message to \(user.id)")
 
-        MessageServiceImpl.sendMessage(to: user, messageText)
+        MessageServiceImpl.shared.sendMessage(to: user, messageText)
     }
 }
