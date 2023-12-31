@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ChatView: View {
-    let user: User
+    let chatPartner: User
     @StateObject private var viewModel: ChatViewModel
 
-    init(user: User) {
-        self._viewModel = StateObject(wrappedValue: ChatViewModel(user: user))
-        self.user = user
+    init(chatPartner: User) {
+        self._viewModel = StateObject(wrappedValue:
+            ChatViewModel(chatPartner: chatPartner)
+        )
+        self.chatPartner = chatPartner
     }
 
     var body: some View {
@@ -21,10 +23,10 @@ struct ChatView: View {
             ScrollView(.vertical) {
                 // header
                 VStack(spacing: 12) {
-                    CircularProfileImageView(user: user, size: .xLarge)
+                    CircularProfileImageView(user: chatPartner, size: .xLarge)
 
                     VStack(spacing: 4) {
-                        Text(user.fullName)
+                        Text(chatPartner.fullName)
                             .font(.title3)
                             .fontWeight(.semibold)
 
@@ -35,10 +37,10 @@ struct ChatView: View {
                 }
                 .padding(.bottom)
 
-                // messages
+                // messages/conversation bubbles
                 LazyVStack(spacing: 12) {
-                    ForEach(1 ... 15, id: \.self) { _ in
-                        ChatMessageCell(isFromCurrentUser: Bool.random())
+                    ForEach(viewModel.messages) { message in
+                        ChatMessageCell(message: message)
                     }
                 }
             }
@@ -69,5 +71,5 @@ struct ChatView: View {
 }
 
 #Preview {
-    ChatView(user: User.MOCK_USER)
+    ChatView(chatPartner: User.MOCK_USER)
 }
