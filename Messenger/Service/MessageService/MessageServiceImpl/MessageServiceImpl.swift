@@ -10,9 +10,13 @@ import FirebaseFirestoreSwift
 import Foundation
 
 struct MessageServiceImpl: MessageService {
-    static let messagesCollection = Firestore.firestore().collection("messages")
+    // Singleton set up
+    static let shared = MessageServiceImpl()
+    private init() {}
 
-    static func sendMessage(to user: User, _ messageText: String) {
+    private let messagesCollection = Firestore.firestore().collection("messages")
+
+    func sendMessage(to user: User, _ messageText: String) {
         // ensure we have a valid user session
         guard let currentUid = Auth.auth().currentUser?.uid else { // "fromId"
             print("DEBUG: no user current logged in. Unable to send message!")
