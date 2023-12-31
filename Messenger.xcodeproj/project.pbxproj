@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9EB099E92B3C762000B068AD /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB099E82B3C762000B068AD /* InboxViewModel.swift */; };
 		9EB099ED2B3C81EA00B068AD /* NewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB099EC2B3C81EA00B068AD /* NewMessageViewModel.swift */; };
+		9EE338C22B418C9E00BE685E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE338C12B418C9E00BE685E /* Message.swift */; };
 		9EFA6F382B2C004C0068B3FE /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F372B2C004C0068B3FE /* MessengerApp.swift */; };
 		9EFA6F3A2B2C004C0068B3FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F392B2C004C0068B3FE /* ContentView.swift */; };
 		9EFA6F3C2B2C00520068B3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EFA6F3B2B2C00520068B3FE /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		9EB099E82B3C762000B068AD /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
 		9EB099EC2B3C81EA00B068AD /* NewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewModel.swift; sourceTree = "<group>"; };
+		9EE338C12B418C9E00BE685E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9EFA6F342B2C004C0068B3FE /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFA6F372B2C004C0068B3FE /* MessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerApp.swift; sourceTree = "<group>"; };
 		9EFA6F392B2C004C0068B3FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				9EFA6F672B346BDD0068B3FE /* User.swift */,
+				9EE338C12B418C9E00BE685E /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				9EFA6F6F2B3481350068B3FE /* ChatView.swift in Sources */,
 				9EFA6FB42B35C0470068B3FE /* AuthService.swift in Sources */,
 				9EFA6FC12B3C6C170068B3FE /* UserService.swift in Sources */,
+				9EE338C22B418C9E00BE685E /* Message.swift in Sources */,
 				9EFA6F4E2B2C01540068B3FE /* LoginView.swift in Sources */,
 				9EFA6F712B3488E20068B3FE /* ChatMessageCell.swift in Sources */,
 				9EFA6F732B348FFF0068B3FE /* ChatBubble.swift in Sources */,
