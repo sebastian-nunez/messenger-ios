@@ -10,9 +10,10 @@ import FirebaseFirestoreSwift
 import Foundation
 
 struct MessageServiceImpl: MessageService {
-    let messagesCollection = Firestore.firestore().collection("messages")
+    static let messagesCollection = Firestore.firestore().collection("messages")
 
-    func sendMessage(toUser user: User, _ messageText: String) {
+    static func sendMessage(to user: User, _ messageText: String) {
+        // ensure we have a valid user session
         guard let currentUid = Auth.auth().currentUser?.uid else { // "fromId"
             print("DEBUG: no user current logged in. Unable to send message!")
             return
@@ -39,5 +40,7 @@ struct MessageServiceImpl: MessageService {
         // upload the message
         currentUserRef.setData(messageData)
         chatPartnerRef.document(messageId).setData(messageData) // create the SAME message within the chat partner's collection
+
+        print("DEBUG: user ID \(currentUid) sent a message to user ID \(chatPartnerId)")
     }
 }

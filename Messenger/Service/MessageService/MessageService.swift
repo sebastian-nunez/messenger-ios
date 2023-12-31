@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MessageService {
-    func sendMessage(toUser user: User, _ messageText: String)
+    static func sendMessage(to user: User, _ messageText: String)
 }
