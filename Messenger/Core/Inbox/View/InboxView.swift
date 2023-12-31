@@ -11,6 +11,7 @@ struct InboxView: View {
     @State private var showNewMessageView = false
     @StateObject private var viewModel = InboxViewModel()
     @State private var selectedUser: User?
+    @State private var showChat = false
 
     private var user: User? {
         return viewModel.currentUser
@@ -29,8 +30,16 @@ struct InboxView: View {
                 .listStyle(PlainListStyle())
                 .frame(height: UIScreen.main.bounds.height - 120)
             }
+            .onChange(of: selectedUser) { _, newValue in // listen for changes of "selectedUser"
+                showChat = newValue != nil
+            }
             .navigationDestination(for: User.self) { user in
                 ProfileView(user: user)
+            }
+            .navigationDestination(isPresented: $showChat) {
+                if let user = selectedUser {
+                    ChatView()
+                }
             }
             .fullScreenCover(isPresented: $showNewMessageView) {
                 NewMessageView(selectedUser: $selectedUser)
