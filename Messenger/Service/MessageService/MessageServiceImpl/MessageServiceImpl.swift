@@ -83,6 +83,7 @@ struct MessageServiceImpl: MessageService {
                 messages[index].user = chatPartner
             }
 
+            // send back the messages
             completion(messages)
         }
     }
