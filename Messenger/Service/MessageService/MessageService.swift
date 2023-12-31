@@ -9,4 +9,5 @@ import Foundation
 
 protocol MessageService {
     func sendMessage(to user: User, _ messageText: String)
+    func observeMessages(chatPartner: User, completion: @escaping ([Message]) -> Void)
 }
