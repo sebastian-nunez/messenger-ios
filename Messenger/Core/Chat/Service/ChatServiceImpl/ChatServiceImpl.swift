@@ -1,5 +1,5 @@
 //
-//  MessageServiceImpl.swift
+//  ChatServiceImpl.swift
 //  Messenger
 //
 //  Created by Sebastian on 12/31/23.
@@ -9,22 +9,20 @@ import Firebase
 import FirebaseFirestoreSwift
 import Foundation
 
-struct MessageServiceImpl: MessageService {
-    // Singleton set up
-    static let shared = MessageServiceImpl()
-    private init() {}
+struct ChatServiceImpl: ChatService {
+    var chatPartner: User
 
     // TODO: extract into a separate file with all Firestore collections
     private let messagesCollection = Firestore.firestore().collection("messages")
 
     /// Sends a message from the currently logged in user to a target "chat partner".
-    func sendMessage(to user: User, _ messageText: String) {
+    func sendMessage(_ messageText: String) {
         // ensure we have a valid user session
         guard let currentUid = Auth.auth().currentUser?.uid else { // "fromId"
             print("DEBUG: no user current logged in. Unable to send message!")
             return
         }
-        let chatPartnerId = user.id // "toId"
+        let chatPartnerId = chatPartner.id // "toId"
 
         // two way references between the user sending and the user recieving the message
         let currentUserRef = messagesCollection.document(currentUid).collection(chatPartnerId).document() // create the message document ONCE and share it across the to and from user
@@ -51,7 +49,7 @@ struct MessageServiceImpl: MessageService {
     }
 
     /// Listens for messages between the currently logged in user and their chat partner using a completing handler.
-    func observeMessages(chatPartner: User, completion: @escaping ([Message]) -> Void) {
+    func observeMessages(completion: @escaping ([Message]) -> Void) {
         // get the current user
         guard let currentUid = Auth.auth().currentUser?.uid else {
             print("DEBUG: no current user in session. Unable to observe messages!")
@@ -78,7 +76,7 @@ struct MessageServiceImpl: MessageService {
                 try? change.document.data(as: Message.self)
             }
 
-            // attach the user object who sent the message (we nee
+            // attach the User OBJECT to the message associated with the user who sent the messages
             for (index, message) in messages.enumerated() where message.fromId != currentUid { // skip messages from the current user
                 messages[index].user = chatPartner
             }
