@@ -12,8 +12,7 @@ import Foundation
 struct ChatServiceImpl: ChatService {
     var chatPartner: User
 
-    // TODO: extract into a separate file with all Firestore collections
-    private let messagesCollection = Firestore.firestore().collection("messages")
+    private let messagesCollection = FirestoreConstants.MessagesCollection
 
     /// Sends a message from the currently logged in user to a target "chat partner".
     func sendMessage(_ messageText: String) {
