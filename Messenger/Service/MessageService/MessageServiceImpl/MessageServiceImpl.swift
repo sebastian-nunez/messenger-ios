@@ -14,8 +14,10 @@ struct MessageServiceImpl: MessageService {
     static let shared = MessageServiceImpl()
     private init() {}
 
+    // TODO: extract into a separate file with all Firestore collections
     private let messagesCollection = Firestore.firestore().collection("messages")
 
+    /// Sends a message from the currently logged in user to a target "chat partner".
     func sendMessage(to user: User, _ messageText: String) {
         // ensure we have a valid user session
         guard let currentUid = Auth.auth().currentUser?.uid else { // "fromId"
@@ -46,5 +48,42 @@ struct MessageServiceImpl: MessageService {
         chatPartnerRef.document(messageId).setData(messageData) // create the SAME message within the chat partner's collection
 
         print("DEBUG: user ID \(currentUid) sent a message to user ID \(chatPartnerId)")
+    }
+
+    /// Listens for messages between the currently logged in user and their chat partner using a completing handler.
+    func observeMessages(chatPartner: User, completion: @escaping ([Message]) -> Void) {
+        // get the current user
+        guard let currentUid = Auth.auth().currentUser?.uid else {
+            print("DEBUG: no current user in session. Unable to observe messages!")
+            return
+        }
+        let chatPartnerId = chatPartner.id
+
+        // query the conversation/messages
+        let query = messagesCollection
+            .document(currentUid)
+            .collection(chatPartnerId) // grab all messages between current user and their chat partner
+            .order(by: "timestamp", descending: false)
+
+        // add the snapshot listener: whenever a new message is added, we will be notified
+        query.addSnapshotListener { snapshot, _ in
+            // detect changes and keep only "ADD" changes when messages are created/sent
+            guard let changes = snapshot?.documentChanges.filter({ $0.type == .added }) else {
+                print("DEBUG: no added changes detected for messages between user ID \(currentUid) and user ID \(chatPartnerId)")
+                return
+            }
+
+            // go through all "new" messages and decode them
+            var messages = changes.compactMap { change in
+                try? change.document.data(as: Message.self)
+            }
+
+            // attach the user object who sent the message (we nee
+            for (index, message) in messages.enumerated() where message.fromId != currentUid { // skip messages from the current user
+                messages[index].user = chatPartner
+            }
+
+            completion(messages)
+        }
     }
 }
