@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ChatView: View {
     let user: User
+    @StateObject private var viewModel: ChatViewModel
 
-    @State private var messageText = ""
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: ChatViewModel(user: user))
+        self.user = user
+    }
 
     var body: some View {
         VStack {
@@ -44,7 +48,7 @@ struct ChatView: View {
 
         // message input view
         ZStack(alignment: .trailing) {
-            TextField("Message...", text: $messageText, axis: .vertical)
+            TextField("Message...", text: $viewModel.messageText, axis: .vertical)
                 .font(.subheadline)
                 .padding(16)
                 .padding(.trailing, 48)
@@ -52,7 +56,10 @@ struct ChatView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 32))
 
             Button("Send") {
-                print("DEBUG: sending message")
+                viewModel.sendMessage()
+
+                // reset the text field
+                viewModel.messageText = ""
             }
             .fontWeight(.semibold)
             .padding(.trailing)
