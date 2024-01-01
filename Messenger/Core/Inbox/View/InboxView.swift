@@ -23,8 +23,8 @@ struct InboxView: View {
                 ActiveNowView()
 
                 List {
-                    ForEach(1 ... 30, id: \.self) { _ in
-                        InboxRowView()
+                    ForEach(viewModel.recentMessages) { recentMessage in
+                        InboxRowView(message: recentMessage)
                     }
                 }
                 .listStyle(PlainListStyle())
