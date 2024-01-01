@@ -11,6 +11,7 @@ import Foundation
 
 class InboxViewModel: ObservableObject {
     @Published var currentUser: User?
+    @Published var recentMessages = [Message]()
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -19,9 +20,32 @@ class InboxViewModel: ObservableObject {
     }
 
     private func setupSubscribers() {
+        // retrieve the current user's data
         UserServiceImpl.shared.$currentUser.sink { [weak self] currentUser in
             self?.currentUser = currentUser
         }
         .store(in: &cancellables)
+
+        // fetch recent messages
+        InboxServiceImpl().$documentChanges.sink { [weak self] documentChanges in
+            self?.loadInitialRecentMessages(from: documentChanges)
+        }
+        .store(in: &cancellables)
+    }
+
+    private func loadInitialRecentMessages(from changes: [DocumentChange]) {
+        var messages = changes.compactMap { change in
+            try? change.document.data(as: Message.self)
+        }
+
+        for i in 0 ..< messages.count {
+            let message = messages[i]
+
+            // attach the user OBJECT for the message (profile picture + other metadata)
+            UserServiceImpl.fetchUser(with: message.chatPartnerId) { user in
+                messages[i].user = user
+                self.recentMessages.append(messages[i])
+            }
+        }
     }
 }
