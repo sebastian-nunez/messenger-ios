@@ -46,4 +46,17 @@ class UserServiceImpl: UserService {
 
         return users
     }
+
+    static func fetchUser(with uid: String, completion: @escaping (User) -> Void) {
+        FirestoreConstants.UsersCollection.document(uid).getDocument { snapshot, _ in
+            // decode user
+            guard let user = try? snapshot?.data(as: User.self) else {
+                print("DEBUG: unable to decode the user with ID \(uid)")
+                return
+            }
+
+            print("DEBUG: retrieved user with ID \(uid)")
+            completion(user)
+        }
+    }
 }
