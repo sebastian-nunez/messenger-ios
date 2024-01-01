@@ -13,6 +13,7 @@ struct ChatServiceImpl: ChatService {
     var chatPartner: User
 
     private let messagesCollection = FirestoreConstants.MessagesCollection
+    private let recentMessagesCollectionName = "recent-messages"
 
     /// Sends a message from the currently logged in user to a target "chat partner".
     func sendMessage(_ messageText: String) {
@@ -27,6 +28,10 @@ struct ChatServiceImpl: ChatService {
         let currentUserRef = messagesCollection.document(currentUid).collection(chatPartnerId).document() // create the message document ONCE and share it across the to and from user
         let chatPartnerRef = messagesCollection.document(chatPartnerId).collection(currentUid)
         let messageId = currentUserRef.documentID
+
+        // most recent message
+        let recentCurrentUserRef = messagesCollection.document(currentUid).collection(recentMessagesCollectionName).document(chatPartnerId)
+        let recentPartnerUserRef = messagesCollection.document(chatPartnerId).collection(recentMessagesCollectionName).document(currentUid)
 
         // create the message
         let message = Message(fromId: currentUid,
@@ -43,6 +48,9 @@ struct ChatServiceImpl: ChatService {
         // upload the message
         currentUserRef.setData(messageData)
         chatPartnerRef.document(messageId).setData(messageData) // create the SAME message within the chat partner's collection
+
+        recentCurrentUserRef.setData(messageData)
+        recentPartnerUserRef.setData(messageData)
 
         print("DEBUG: user ID \(currentUid) sent a message to user ID \(chatPartnerId)")
     }
