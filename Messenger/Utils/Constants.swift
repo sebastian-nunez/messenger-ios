@@ -12,4 +12,5 @@ import Foundation
 enum FirestoreConstants {
     static let UsersCollection = Firestore.firestore().collection("users")
     static let MessagesCollection = Firestore.firestore().collection("messages")
+    static let RecentMessagesCollectionName = "recent-messages"
 }

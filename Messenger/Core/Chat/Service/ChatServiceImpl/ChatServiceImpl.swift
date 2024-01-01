@@ -13,7 +13,7 @@ struct ChatServiceImpl: ChatService {
     var chatPartner: User
 
     private let messagesCollection = FirestoreConstants.MessagesCollection
-    private let recentMessagesCollectionName = "recent-messages"
+    private let recentMessagesCollectionName = FirestoreConstants.RecentMessagesCollectionName
 
     /// Sends a message from the currently logged in user to a target "chat partner".
     func sendMessage(_ messageText: String) {
