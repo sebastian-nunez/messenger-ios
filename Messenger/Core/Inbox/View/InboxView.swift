@@ -24,7 +24,15 @@ struct InboxView: View {
 
                 List {
                     ForEach(viewModel.recentMessages) { recentMessage in
-                        InboxRowView(message: recentMessage)
+                        // disables the "chevron" > (workaround to basically hide the NavLink)
+                        ZStack {
+                            NavigationLink(value: recentMessage) {
+                                EmptyView()
+                            }
+                            .opacity(0.0)
+
+                            InboxRowView(message: recentMessage)
+                        }
                     }
                 }
                 .listStyle(PlainListStyle())
@@ -35,6 +43,11 @@ struct InboxView: View {
             }
             .navigationDestination(for: User.self) { user in
                 ProfileView(user: user)
+            }
+            .navigationDestination(for: Message.self) { recentMessage in
+                if let user = recentMessage.user {
+                    ChatView(chatPartner: user)
+                }
             }
             .navigationDestination(isPresented: $showChat) {
                 if let user = selectedUser {
