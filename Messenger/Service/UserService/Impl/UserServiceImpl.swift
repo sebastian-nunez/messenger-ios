@@ -35,9 +35,16 @@ class UserServiceImpl: UserService {
     }
 
     @MainActor
-    static func fetchAllUsers() async throws -> [User] {
+    static func fetchAllUsers(limit: Int? = nil) async throws -> [User] {
+        // query to apply limit
+        let query = FirestoreConstants.UsersCollection
+
+        if let limit = limit {
+            query.limit(to: limit)
+        }
+
         // fetch all users
-        let snapshot = try await Firestore.firestore().collection("users").getDocuments()
+        let snapshot = try await query.getDocuments()
 
         // decode the users
         let users = snapshot.documents.compactMap { user in
