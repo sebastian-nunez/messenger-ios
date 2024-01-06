@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E3F31F42B49B1CA0051E7C9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F31F32B49B1CA0051E7C9 /* View.swift */; };
 		9E3F31F62B49D49D0051E7C9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F31F52B49D49D0051E7C9 /* Date.swift */; };
+		9E3F31FA2B49DFF80051E7C9 /* ActiveNowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F31F92B49DFF80051E7C9 /* ActiveNowViewModel.swift */; };
 		9EB099E92B3C762000B068AD /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB099E82B3C762000B068AD /* InboxViewModel.swift */; };
 		9EB099ED2B3C81EA00B068AD /* NewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB099EC2B3C81EA00B068AD /* NewMessageViewModel.swift */; };
 		9EE338C22B418C9E00BE685E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE338C12B418C9E00BE685E /* Message.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		9E3F31F32B49B1CA0051E7C9 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		9E3F31F52B49D49D0051E7C9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		9E3F31F92B49DFF80051E7C9 /* ActiveNowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNowViewModel.swift; sourceTree = "<group>"; };
 		9EB099E82B3C762000B068AD /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
 		9EB099EC2B3C81EA00B068AD /* NewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewModel.swift; sourceTree = "<group>"; };
 		9EE338C12B418C9E00BE685E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -152,6 +154,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E3F31F72B49DFCD0051E7C9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E3F31F92B49DFF80051E7C9 /* ActiveNowViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E3F31F82B49DFCF0051E7C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA6F572B2E05B80068B3FE /* ActiveNowView.swift */,
+			);
+			name = View;
+			path = "New Group/View";
+			sourceTree = "<group>";
+		};
 		9EB099E52B3C75F000B068AD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,7 +394,8 @@
 		9EFA6F562B2E059D0068B3FE /* ActiveNow */ = {
 			isa = PBXGroup;
 			children = (
-				9EFA6F572B2E05B80068B3FE /* ActiveNowView.swift */,
+				9E3F31F82B49DFCF0051E7C9 /* View */,
+				9E3F31F72B49DFCD0051E7C9 /* ViewModel */,
 			);
 			path = ActiveNow;
 			sourceTree = "<group>";
@@ -625,6 +645,7 @@
 				9EFA6F682B346BDD0068B3FE /* User.swift in Sources */,
 				9EFA6F3A2B2C004C0068B3FE /* ContentView.swift in Sources */,
 				9EE338D22B41BFE400BE685E /* ChatServiceImpl.swift in Sources */,
+				9E3F31FA2B49DFF80051E7C9 /* ActiveNowViewModel.swift in Sources */,
 				9EFA6FBD2B3C51400068B3FE /* ContentViewModel.swift in Sources */,
 				9EFA6FB72B35C0B10068B3FE /* AuthServiceImpl.swift in Sources */,
 				9EFA6F642B345C6B0068B3FE /* SettingsOptionsViewModel.swift in Sources */,
