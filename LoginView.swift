@@ -9,26 +9,26 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
-    
+
     var body: some View {
         NavigationStack {
             VStack {
                 Spacer()
-                
+
                 // logo
-                Image("MessengerLogo")
+                Image("Logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 120, height: 120)
                     .padding(.bottom, 32)
-                    
+
                 // text fields
                 VStack(spacing: 16) {
                     TextField("Enter your email", text: $viewModel.email)
                         .padding(12)
                         .background(Color(.systemGray6))
                         .cornerRadius(10)
-                    
+
                     SecureField("Enter your password", text: $viewModel.password)
                         .padding(12)
                         .background(Color(.systemGray6))
@@ -36,7 +36,7 @@ struct LoginView: View {
                 }
                 .font(.subheadline)
                 .padding(.horizontal)
-                
+
                 // forgot password
                 Button {
                     print("Forgot password")
@@ -48,9 +48,9 @@ struct LoginView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.horizontal)
-                
+
                 .padding(.top, -8)
-                
+
                 // login button
                 Button {
                     Task {
@@ -62,47 +62,47 @@ struct LoginView: View {
                         .fontWeight(.semibold)
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, minHeight: 45)
-                        .background(Color(.systemBlue))
+                        .background(.black)
                         .cornerRadius(10)
                 }
                 .padding(.top)
                 .padding(.horizontal)
-                
+
                 // divider
                 HStack {
                     Rectangle()
                         .frame(height: 0.3)
-                    
+
                     Text("OR")
                         .font(.footnote)
                         .fontWeight(.semibold)
-                    
+
                     Rectangle()
                         .frame(height: 0.3)
                 }
                 .foregroundStyle(.gray)
                 .padding()
-                
-                // facebook login
+
+                // apple login
                 Button {
-                    print("Login with Facebook")
+                    print("Login with Apple")
                 } label: {
                     HStack {
-                        Image("FacebookLogo")
+                        Image("AppleLogo")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 20, height: 20)
-                        
-                        Text("Continue with Facebook")
+                            .frame(width: 30, height: 20)
+
+                        Text("Continue with Apple")
                             .font(.footnote)
                             .fontWeight(.semibold)
-                            .foregroundStyle(Color(.systemBlue))
+                            .foregroundStyle(.black)
                     }
                 }
-                
+
                 Spacer()
                 Divider()
-                
+
                 // sign up link
                 NavigationLink {
                     SignUpView()
@@ -110,7 +110,7 @@ struct LoginView: View {
                 } label: {
                     HStack(spacing: 3) {
                         Text("Don't have an account?")
-                            
+
                         Text("Sign up")
                             .fontWeight(.semibold)
                     }
@@ -119,6 +119,7 @@ struct LoginView: View {
                 .padding(.vertical)
             }
         }
+        .tint(.black)
     }
 }
 
