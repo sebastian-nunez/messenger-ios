@@ -20,27 +20,35 @@ struct ChatView: View {
 
     var body: some View {
         VStack {
-            ScrollView(.vertical) {
-                // header
-                VStack(spacing: 12) {
-                    CircularProfileImageView(user: chatPartner, size: .xLarge)
+            ScrollViewReader { scrollProxy in
+                ScrollView(.vertical) {
+                    VStack(spacing: 12) {
+                        CircularProfileImageView(user: chatPartner, size: .xLarge)
 
-                    VStack(spacing: 4) {
-                        Text(chatPartner.fullName)
-                            .font(.title3)
-                            .fontWeight(.semibold)
+                        VStack(spacing: 4) {
+                            Text(chatPartner.fullName)
+                                .font(.title3)
+                                .fontWeight(.semibold)
 
-                        Text("Messenger")
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
+                            Text("Messenger")
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
+                        }
                     }
-                }
-                .padding(.bottom)
+                    .padding(.bottom)
 
-                // messages/conversation bubbles
-                LazyVStack(spacing: 12) {
-                    ForEach(viewModel.messages) { message in
-                        ChatMessageCell(message: message)
+                    // messages/conversation bubbles
+                    LazyVStack(spacing: 12) {
+                        ForEach(viewModel.messages) { message in
+                            ChatMessageCell(message: message)
+                                .id(message.id) // assign each chat cell an id for scrolling
+                        }
+                        .onChange(of: viewModel.messages.last) { _, newLastMessage in
+                            // Scroll to the end whenever messages are updated
+                            withAnimation {
+                                scrollProxy.scrollTo(newLastMessage?.id, anchor: .bottom)
+                            }
+                        }
                     }
                 }
             }
