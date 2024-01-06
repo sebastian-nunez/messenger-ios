@@ -45,8 +45,11 @@ struct InboxView: View {
             .onChange(of: selectedUser) { _, newValue in // listen for changes of "selectedUser"
                 showChat = newValue != nil
             }
-            .navigationDestination(for: User.self) { user in
-                ProfileView(user: user)
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .profile(let user): ProfileView(user: user)
+                case .chatView(let chatPartner): ChatView(chatPartner: chatPartner)
+                }
             }
             .navigationDestination(for: Message.self) { recentMessage in
                 if let user = recentMessage.user {
@@ -61,18 +64,21 @@ struct InboxView: View {
             .fullScreenCover(isPresented: $showNewMessageView) {
                 NewMessageView(selectedUser: $selectedUser)
             }
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 // LEFT
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack(spacing: 8) {
-                        NavigationLink(value: user) {
-                            // image
-                            CircularProfileImageView(user: user)
+                        if let user = user {
+                            NavigationLink(value: Route.profile(user)) {
+                                // image
+                                CircularProfileImageView(user: user)
+                            }
                         }
 
                         // heading
                         Text("Chats")
-                            .font(.title)
+                            .font(.title2)
                             .fontWeight(.semibold)
                     }
                 }
