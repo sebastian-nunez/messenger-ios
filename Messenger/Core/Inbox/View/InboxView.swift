@@ -17,6 +17,10 @@ struct InboxView: View {
         return viewModel.currentUser
     }
 
+    private var recentMessages: [Message] {
+        Array(viewModel.chatPartnerToRecentMessage.values)
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -24,7 +28,7 @@ struct InboxView: View {
                     .listRowSeparator(.hidden) // hide the separator
                     .listRowInsets(EdgeInsets()) // move fully to the edges
 
-                ForEach(viewModel.recentMessages) { recentMessage in
+                ForEach(recentMessages) { recentMessage in
                     // disables the "chevron" > (workaround to basically hide the NavLink)
                     ZStack {
                         NavigationLink(value: recentMessage) {

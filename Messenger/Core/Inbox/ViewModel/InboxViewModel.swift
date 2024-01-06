@@ -11,7 +11,7 @@ import Foundation
 
 class InboxViewModel: ObservableObject {
     @Published var currentUser: User?
-    @Published var recentMessages = [Message]()
+    @Published var chatPartnerToRecentMessage = [String: Message]()
 
     private let service = InboxServiceImpl()
     private var cancellables = Set<AnyCancellable>()
@@ -42,11 +42,14 @@ class InboxViewModel: ObservableObject {
 
         for i in 0 ..< messages.count {
             var message = messages[i]
+            let chatPartnerId = message.chatPartnerId
 
             // attach the user/chat-partner OBJECT for the message (profile picture + other metadata)
-            UserServiceImpl.fetchUser(with: message.chatPartnerId) { user in
+            UserServiceImpl.fetchUser(with: chatPartnerId) { user in
                 message.user = user
-                self.recentMessages.append(message)
+
+                // Update the dictionary with the recent message for the chat partner
+                self.chatPartnerToRecentMessage[chatPartnerId] = message
             }
         }
     }
