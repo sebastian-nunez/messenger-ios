@@ -36,17 +36,17 @@ class InboxViewModel: ObservableObject {
     }
 
     private func loadInitialRecentMessages(from changes: [DocumentChange]) {
-        var messages = changes.compactMap { change in
+        let messages = changes.compactMap { change in
             try? change.document.data(as: Message.self)
         }
 
         for i in 0 ..< messages.count {
-            let message = messages[i]
+            var message = messages[i]
 
             // attach the user/chat-partner OBJECT for the message (profile picture + other metadata)
             UserServiceImpl.fetchUser(with: message.chatPartnerId) { user in
-                messages[i].user = user
-                self.recentMessages.append(messages[i])
+                message.user = user
+                self.recentMessages.append(message)
             }
         }
     }
