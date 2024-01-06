@@ -19,25 +19,24 @@ struct InboxView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
+            List {
                 ActiveNowView()
+                    .listRowSeparator(.hidden) // hide the separator
+                    .listRowInsets(EdgeInsets()) // move fully to the edges
 
-                List {
-                    ForEach(viewModel.recentMessages) { recentMessage in
-                        // disables the "chevron" > (workaround to basically hide the NavLink)
-                        ZStack {
-                            NavigationLink(value: recentMessage) {
-                                EmptyView()
-                            }
-                            .opacity(0.0)
-
-                            InboxRowView(message: recentMessage)
+                ForEach(viewModel.recentMessages) { recentMessage in
+                    // disables the "chevron" > (workaround to basically hide the NavLink)
+                    ZStack {
+                        NavigationLink(value: recentMessage) {
+                            EmptyView()
                         }
+                        .opacity(0.0)
+
+                        InboxRowView(message: recentMessage)
                     }
                 }
-                .listStyle(PlainListStyle())
-                .frame(height: UIScreen.main.bounds.height - 120)
             }
+            .listStyle(PlainListStyle())
             .onChange(of: selectedUser) { _, newValue in // listen for changes of "selectedUser"
                 showChat = newValue != nil
             }

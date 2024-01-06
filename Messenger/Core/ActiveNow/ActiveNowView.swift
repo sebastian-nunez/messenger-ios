@@ -16,7 +16,7 @@ struct ActiveNowView: View {
                     VStack {
                         // image
                         ZStack(alignment: .bottomTrailing) {
-                            CircularProfileImageView(user: User.MOCK_USER, size: .medium)
+                            CircularProfileImageView(user: User.MOCK_USER, size: .large)
 
                             // green circle
                             ZStack {
