@@ -15,27 +15,29 @@ struct ActiveNowView: View {
             HStack(spacing: 32) {
                 // render users
                 ForEach(viewModel.users) { user in
-                    VStack {
-                        // image
-                        ZStack(alignment: .bottomTrailing) {
-                            CircularProfileImageView(user: user, size: .large)
+                    NavigationLink(value: Route.chatView(user)) {
+                        VStack {
+                            // image
+                            ZStack(alignment: .bottomTrailing) {
+                                CircularProfileImageView(user: user, size: .large)
 
-                            // green circle
-                            ZStack {
-                                Circle()
-                                    .fill(.white)
-                                    .frame(width: 18, height: 18)
+                                // green circle
+                                ZStack {
+                                    Circle()
+                                        .fill(.white)
+                                        .frame(width: 18, height: 18)
 
-                                Circle()
-                                    .fill(.gray)
-                                    .frame(width: 12, height: 12)
+                                    Circle()
+                                        .fill(.gray)
+                                        .frame(width: 12, height: 12)
+                                }
                             }
-                        }
 
-                        // name
-                        Text(user.firstname)
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
+                            // name
+                            Text(user.firstname)
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
+                        }
                     }
                 }
             }
