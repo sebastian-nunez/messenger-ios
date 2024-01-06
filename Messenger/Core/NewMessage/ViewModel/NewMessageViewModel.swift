@@ -17,13 +17,14 @@ class NewMessageViewModel: ObservableObject {
         }
     }
 
+    @MainActor
     func fetchUsers() async throws {
         guard let currentUid = Auth.auth().currentUser?.uid else {
             print("DEBUG: unable to fetch the currentUid to fetchUsers")
             return
         }
 
-        var users = try await UserServiceImpl.fetchAllUsers()
+        let users = try await UserServiceImpl.fetchAllUsers()
 
         // current user should NOT be in the list of contacts to message
         self.users = users.filter { user in
