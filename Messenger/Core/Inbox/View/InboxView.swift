@@ -19,6 +19,7 @@ struct InboxView: View {
 
     private var recentMessages: [Message] {
         Array(viewModel.chatPartnerToRecentMessage.values)
+            .sorted { $0.timestamp.dateValue() > $1.timestamp.dateValue() }
     }
 
     var body: some View {
