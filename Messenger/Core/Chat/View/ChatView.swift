@@ -19,66 +19,78 @@ struct ChatView: View {
     }
 
     var body: some View {
-        VStack {
-            ScrollViewReader { scrollProxy in
-                ScrollView(.vertical) {
-                    VStack(spacing: 12) {
-                        CircularProfileImageView(user: chatPartner, size: .xLarge)
+        NavigationView {
+            VStack {
+                ScrollViewReader { scrollProxy in
+                    ScrollView(.vertical) {
+                        // chat partner profile information
+                        VStack(spacing: 12) {
+                            CircularProfileImageView(user: chatPartner, size: .xLarge)
 
-                        VStack(spacing: 4) {
-                            Text(chatPartner.fullName)
-                                .font(.title3)
-                                .fontWeight(.semibold)
+                            VStack(spacing: 4) {
+                                Text(chatPartner.fullName)
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
 
-                            Text("Messenger")
-                                .font(.subheadline)
-                                .foregroundStyle(.gray)
+                                Text("Messenger")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.gray)
+                            }
                         }
-                    }
-                    .padding(.bottom)
+                        .padding(.bottom)
 
-                    // messages/conversation bubbles
-                    LazyVStack(spacing: 12) {
-                        ForEach(viewModel.messages) { message in
-                            ChatMessageCell(message: message)
-                                .id(message.id) // assign each chat cell an id for scrolling
-                        }
-                        .onChange(of: viewModel.messages.last) { _, newLastMessage in
-                            // Scroll to the end whenever messages are updated
-                            withAnimation {
-                                scrollProxy.scrollTo(newLastMessage?.id, anchor: .bottom)
+                        // messages/conversation bubbles
+                        LazyVStack(spacing: 12) {
+                            ForEach(viewModel.messages) { message in
+                                ChatMessageCell(message: message)
+                                    .id(message.id) // assign each chat cell an id for scrolling
+                            }
+                            .onChange(of: viewModel.messages.last) { _, newLastMessage in
+                                // Scroll to the end whenever messages are updated
+                                withAnimation {
+                                    scrollProxy.scrollTo(newLastMessage?.id, anchor: .bottom)
+                                }
                             }
                         }
                     }
                 }
+
+                Spacer()
+
+                // message input view
+                ZStack(alignment: .trailing) {
+                    TextField("Message...", text: $viewModel.messageText, axis: .vertical)
+                        .font(.subheadline)
+                        .padding(16)
+                        .padding(.trailing, 48)
+                        .background(Color(.systemGroupedBackground))
+                        .clipShape(RoundedRectangle(cornerRadius: 32))
+
+                    Button("Send") {
+                        viewModel.sendMessage()
+
+                        // reset the text field
+                        viewModel.messageText = ""
+                    }
+                    .fontWeight(.semibold)
+                    .padding(.trailing)
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 8)
             }
         }
-
-        Spacer()
-
-        // message input view
-        ZStack(alignment: .trailing) {
-            TextField("Message...", text: $viewModel.messageText, axis: .vertical)
-                .font(.subheadline)
-                .padding(16)
-                .padding(.trailing, 48)
-                .background(Color(.systemGroupedBackground))
-                .clipShape(RoundedRectangle(cornerRadius: 32))
-
-            Button("Send") {
-                viewModel.sendMessage()
-
-                // reset the text field
-                viewModel.messageText = ""
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(chatPartner.fullName)
+                    .font(.headline)
+                    .fontWeight(.semibold)
             }
-            .fontWeight(.semibold)
-            .padding(.trailing)
         }
-        .padding(.horizontal)
-        .padding(.vertical, 8)
     }
 }
 
 #Preview {
-    ChatView(chatPartner: User.MOCK_USER)
+    NavigationView {
+        ChatView(chatPartner: User.MOCK_USER)
+    }
 }
