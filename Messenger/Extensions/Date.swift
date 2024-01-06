@@ -26,7 +26,7 @@ extension Date {
     }
 
     /// Returns a descriptive timestamp respresentation. ex. "10:32" for the case of today, "Yesterday", or "11/13/23" for other dates.
-    func timestampString() -> String {
+    func descriptiveFormatString() -> String {
         if Calendar.current.isDateInToday(self) { // current day
             return timeString()
         } else if Calendar.current.isDateInYesterday(self) {

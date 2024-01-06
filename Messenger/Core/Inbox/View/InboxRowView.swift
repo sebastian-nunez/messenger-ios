@@ -34,7 +34,7 @@ struct InboxRowView: View {
 
             HStack {
                 // date
-                Text("Yesterday") // TODO: update with actual value
+                Text(message.timestampString)
 
                 // indicator
                 Image(systemName: "chevron.right")
