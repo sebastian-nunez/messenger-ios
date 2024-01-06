@@ -27,15 +27,9 @@ struct ChatView: View {
                         VStack(spacing: 12) {
                             CircularProfileImageView(user: chatPartner, size: .xLarge)
 
-                            VStack(spacing: 4) {
-                                Text(chatPartner.fullName)
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
-
-                                Text("Messenger")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.gray)
-                            }
+                            Text("Messenger")
+                                .font(.subheadline)
+                                .foregroundStyle(.gray)
                         }
                         .padding(.bottom)
 
