@@ -245,9 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				9EFA6F362B2C004C0068B3FE /* Messenger */,
-				9EFA6F3B2B2C00520068B3FE /* Assets.xcassets */,
-				9EFA6F3D2B2C00520068B3FE /* Preview Content */,
-				9EFA6F742B35B96A0068B3FE /* GoogleService-Info.plist */,
 				9EFA6F352B2C004C0068B3FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -263,6 +260,9 @@
 		9EFA6F362B2C004C0068B3FE /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				9EFA6F3B2B2C00520068B3FE /* Assets.xcassets */,
+				9EFA6F742B35B96A0068B3FE /* GoogleService-Info.plist */,
+				9EFA6F3D2B2C00520068B3FE /* Preview Content */,
 				9EFA6F492B2C00F90068B3FE /* App */,
 				9EFA6F6A2B34732F0068B3FE /* Components */,
 				9EFA6F482B2C00F80068B3FE /* Core */,
