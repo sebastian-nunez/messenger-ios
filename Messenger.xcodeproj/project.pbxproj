@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E3F31F42B49B1CA0051E7C9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F31F32B49B1CA0051E7C9 /* View.swift */; };
+		9E3F31F62B49D49D0051E7C9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F31F52B49D49D0051E7C9 /* Date.swift */; };
 		9EB099E92B3C762000B068AD /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB099E82B3C762000B068AD /* InboxViewModel.swift */; };
 		9EB099ED2B3C81EA00B068AD /* NewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB099EC2B3C81EA00B068AD /* NewMessageViewModel.swift */; };
 		9EE338C22B418C9E00BE685E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE338C12B418C9E00BE685E /* Message.swift */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		9E3F31F32B49B1CA0051E7C9 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		9E3F31F52B49D49D0051E7C9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9EB099E82B3C762000B068AD /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
 		9EB099EC2B3C81EA00B068AD /* NewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewModel.swift; sourceTree = "<group>"; };
 		9EE338C12B418C9E00BE685E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				9E3F31F32B49B1CA0051E7C9 /* View.swift */,
+				9E3F31F52B49D49D0051E7C9 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				9E3F31F42B49B1CA0051E7C9 /* View.swift in Sources */,
 				9EE338DB2B43014C00BE685E /* InboxServiceImpl.swift in Sources */,
 				9EFA6FB92B35C4490068B3FE /* SignUpViewModel.swift in Sources */,
+				9E3F31F62B49D49D0051E7C9 /* Date.swift in Sources */,
 				9EFA6F582B2E05B80068B3FE /* ActiveNowView.swift in Sources */,
 				9EFA6F662B3465DA0068B3FE /* ProfileViewModel.swift in Sources */,
 				9EE338D02B41BFCB00BE685E /* ChatService.swift in Sources */,
