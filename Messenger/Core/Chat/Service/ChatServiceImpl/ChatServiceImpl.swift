@@ -17,6 +17,11 @@ struct ChatServiceImpl: ChatService {
 
     /// Sends a message from the currently logged in user to a target "chat partner".
     func sendMessage(_ messageText: String) {
+        if messageText.isEmpty {
+            print("DEBUG: unable to send an empty message!")
+            return
+        }
+
         // ensure we have a valid user session
         guard let currentUid = Auth.auth().currentUser?.uid else { // "fromId"
             print("DEBUG: no user current logged in. Unable to send message!")
